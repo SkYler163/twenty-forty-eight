@@ -1,0 +1,41 @@
+# Run: golangci-lint run
+# https://github.com/golangci/golangci-lint/blob/master/.golangci.example.yml
+run:
+  modules-download-mode: vendor
+
+issues:
+  exclude-dirs:
+    - vendor
+
+linters:
+  disable:
+    - funlen
+    - gocognit
+    - gocyclo
+    - cyclop
+    - depguard
+    - exhaustive
+    - exhaustruct
+    - gomnd
+    - gochecknoglobals
+    - ireturn
+    - varnamelen
+  presets:
+    - bugs
+    - complexity
+    - format
+    - performance
+    - style
+    - unused
+
+linters-settings:
+  goimports:
+    local-prefixes: github.com/SkYler163/twenty-forty-eight
+  gci:
+    sections:
+      - standard
+      - default
+      - prefix(github.com/SkYler163/twenty-forty-eight)
+  govet:
+    enable:
+      - fieldalignment
